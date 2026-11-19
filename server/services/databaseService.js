@@ -11,7 +11,7 @@ const logger = require('../utils/logger');
 
 // Protected system databases that cannot be dropped
 const PROTECTED_DBS = ['admin', 'local', 'config', 'icoded_main'];
-
+ 
 /**
  * Namespace guard: strictly enforces that only 'icoded_' databases can be accessed.
  * Prevents accessing any other databases (e.g. sample_mflix, admin, local, personal DBs).
