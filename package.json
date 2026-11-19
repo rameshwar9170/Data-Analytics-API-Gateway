@@ -1,0 +1,15 @@
+{
+  "name": "icoded-automation",
+  "version": "1.0.0",
+  "description": "iCoded Automation - AI-Powered Dataset Generator & Data Analyst Assessment System",
+  "private": true,
+  "workspaces": ["server", "client"],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "cd server && npm run dev",
+    "dev:client": "cd client && npm run dev",
+    "test": "cd server && npm test",
+    "test:server": "cd server && npm test",
+    "build": "cd client && npm run build"
+  }
+}
