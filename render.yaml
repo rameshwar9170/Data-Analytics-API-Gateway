@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: data-analytics-api-gateway
+    env: node
+    plan: free
+    buildCommand: npm run render:build
+    startCommand: node server/server.js
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: RATE_LIMIT_WINDOW
+        value: 15
+      - key: RATE_LIMIT_MAX
+        value: 500
+      - key: QUERY_TIMEOUT_MS
+        value: 30000
+      - key: QUERY_RESULT_LIMIT
+        value: 5000

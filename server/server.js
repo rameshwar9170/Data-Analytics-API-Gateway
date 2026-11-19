@@ -67,6 +67,19 @@ app.use('/api', globalLimiter);
 // API Routes
 app.use('/api', routes);
 
+// Serve static React client build in production or when client/dist exists
+const fs = require('fs');
+const clientDistPath = path.resolve(__dirname, '../client/dist');
+if (fs.existsSync(path.join(clientDistPath, 'index.html'))) {
+  app.use(express.static(clientDistPath));
+  app.get('*', (req, res, next) => {
+    if (req.path.startsWith('/api') || req.path.startsWith('/socket.io')) {
+      return next();
+    }
+    res.sendFile(path.join(clientDistPath, 'index.html'));
+  });
+}
+
 // Global Error Handler
 app.use(errorHandler);
 

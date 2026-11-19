@@ -5,11 +5,13 @@
   "private": true,
   "workspaces": ["server", "client"],
   "scripts": {
+    "start": "node server/server.js",
+    "build": "npm run render:build",
+    "render:build": "npm install && cd client && npm install && npm run build && cd ../server && npm install",
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
     "dev:server": "cd server && npm run dev",
     "dev:client": "cd client && npm run dev",
     "test": "cd server && npm test",
-    "test:server": "cd server && npm test",
-    "build": "cd client && npm run build"
+    "test:server": "cd server && npm test"
   }
 }
