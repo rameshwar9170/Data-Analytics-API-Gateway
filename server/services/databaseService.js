@@ -205,7 +205,7 @@ const getDocuments = async (dbName, collectionName, filter = {}, options = {}) =
     const nativeDb = getNativeDb(dbName);
     const col = nativeDb.collection(collectionName);
 
-    const limit = Math.min(options.limit || 50, config.queryResultLimit);
+    const limit = Math.min(options.limit || 50, config.queryResultLimit || 20000);
     const skip = options.skip || 0;
     const sort = options.sort || { _id: -1 };
 

@@ -34,7 +34,7 @@ const config = {
 
   // Query Execution
   queryTimeoutMs: parseInt(process.env.QUERY_TIMEOUT_MS, 10) || 30000,
-  queryResultLimit: parseInt(process.env.QUERY_RESULT_LIMIT, 10) || 1000,
+  queryResultLimit: parseInt(process.env.QUERY_RESULT_LIMIT, 10) || 20000,
 
   // CORS
   corsOrigins: process.env.CORS_ORIGINS

@@ -126,7 +126,7 @@ const readCollectionData = async (req, res) => {
       ...filterParams
     } = req.query;
 
-    const parsedLimit = Math.min(Math.max(1, parseInt(limit, 10) || 50), 1000); // 1 to 1000 records
+    const parsedLimit = Math.min(Math.max(1, parseInt(limit, 10) || 50), 20000); // Allow up to 20,000 records for BI tools like Power BI
     const parsedPage = Math.max(1, parseInt(page, 10) || 1);
     const skip = (parsedPage - 1) * parsedLimit;
     const sortDir = order.toLowerCase() === 'asc' ? 1 : -1;
