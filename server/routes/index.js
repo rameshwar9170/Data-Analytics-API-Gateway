@@ -9,6 +9,7 @@ const assessmentRoutes = require('./assessment.routes');
 const candidateRoutes = require('./candidate.routes');
 const queryRoutes = require('./query.routes');
 const analyticsRoutes = require('./analytics.routes');
+const readOnlyRoutes = require('./readOnlyApi.routes');
 const monitorRoutes = require('./monitor.routes');
 const settingsRoutes = require('./settings.routes');
 
@@ -20,6 +21,7 @@ router.use('/assessments', assessmentRoutes);
 router.use('/candidates', candidateRoutes);
 router.use('/queries', queryRoutes);
 router.use('/analytics', analyticsRoutes);
+router.use('/data', readOnlyRoutes);
 router.use('/monitor', monitorRoutes);
 router.use('/settings', settingsRoutes);
 
